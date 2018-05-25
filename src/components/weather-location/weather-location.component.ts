@@ -23,5 +23,5 @@ import {
   `
 })
 export class WeatherLocationComponent {
-  @Input() place: string;
+  @Input() place!: string;
 }

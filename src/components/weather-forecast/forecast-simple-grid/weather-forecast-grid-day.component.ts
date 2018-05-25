@@ -28,5 +28,5 @@ import { Forecast } from '../../../services/api/weather.api.service';
   `
 })
 export class WeatherForecastGridDayComponent {
-  @Input() forecast: Forecast;
+  @Input() forecast!: Forecast;
 }

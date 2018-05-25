@@ -16,7 +16,7 @@ import {
   `
 })
 export class WeatherIconComponent {
-  @Input() iconClass: string;
-  @Input() iconImageUrl: string;
-  @Input() title: string;
+  @Input() iconClass!: string;
+  @Input() iconImageUrl!: string;
+  @Input() title!: string;
 }

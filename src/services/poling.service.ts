@@ -1,12 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/operator/merge';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/multicast';
-import { Observable } from 'rxjs/Observable';
-import { Observer } from 'rxjs/Observer';
-import { Subject } from 'rxjs/Subject';
-import { Subscription } from 'rxjs/Subscription';
+
+import { Observable, Observer, Subject, Subscription } from 'rxjs';
 
 @Injectable()
 export class PoolingService {
@@ -22,18 +16,20 @@ export class PoolingService {
       let sub: Subscription;
       this.zone.runOutsideAngular(() => {
         const zone = this.zone;
-        sub = Observable.interval(frequency).mergeMap(operation).subscribe({
-          next(result) {
-            zone.run(() => {
-              observer.next(result);
-            });
-          },
-          error(err) {
-            zone.run(() => {
-              observer.error(err);
-            });
-          }
-        });
+        sub = Observable.interval(frequency)
+          .mergeMap(operation)
+          .subscribe({
+            next(result) {
+              zone.run(() => {
+                observer.next(result);
+              });
+            },
+            error(err) {
+              zone.run(() => {
+                observer.error(err);
+              });
+            }
+          });
       });
 
       return () => {
@@ -43,6 +39,9 @@ export class PoolingService {
       };
     });
 
-    return source.multicast(subject).refCount().merge(operation());
+    return source
+      .multicast(subject)
+      .refCount()
+      .merge(operation());
   }
 }

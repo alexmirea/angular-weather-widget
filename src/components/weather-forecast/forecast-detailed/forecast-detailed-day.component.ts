@@ -57,9 +57,9 @@ import { WeatherSettings } from '../../../weather.interfaces';
   `
 })
 export class WeatherForecastDetailDayComponent implements OnChanges {
-  chartData: ChartData;
-  chartOptions: ChartOptions;
-  @Input() settings: WeatherSettings;
+  chartData!: ChartData;
+  chartOptions!: ChartOptions;
+  @Input() settings!: WeatherSettings;
 
   @Input()
   set forecast(value: Forecast[]) {
@@ -68,7 +68,7 @@ export class WeatherForecastDetailDayComponent implements OnChanges {
   get forecast(): Forecast[] {
     return this._forecast;
   }
-  private _forecast: Forecast[];
+  private _forecast!: Forecast[];
 
   constructor(private weatherHelpers: WeatherHelpersService) {}
 

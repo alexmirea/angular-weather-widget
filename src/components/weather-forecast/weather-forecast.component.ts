@@ -44,7 +44,7 @@ export class WeatherForecastComponent {
         this.isGridForecast = false;
     }
   }
-  @Input() settings: WeatherSettings;
+  @Input() settings!: WeatherSettings;
   @Input()
   set forecast(value: Forecast[]) {
     if (!value) {
@@ -56,5 +56,5 @@ export class WeatherForecastComponent {
   get forecast(): Forecast[] {
     return this._forecast;
   }
-  private _forecast: Forecast[];
+  private _forecast!: Forecast[];
 }

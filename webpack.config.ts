@@ -60,6 +60,9 @@ export default {
       /angular(\\|\/)core(\\|\/)@angular/,
       path.join(__dirname, 'src')
     ),
+    new webpack.ContextReplacementPlugin(/\@angular\b.*\b(bundles|linker)/, path.join(__dirname, 'src')), // Workaround for https://github.com/angular/angular/issues/11580
+    new webpack.ContextReplacementPlugin(/angular(\\|\/)core(\\|\/)@angular/, path.join(__dirname, 'src')), // Workaround for https://github.com/angular/angular/issues/14898
+    new webpack.ContextReplacementPlugin(/\@angular(\\|\/)core(\\|\/)esm5/, path.join(__dirname, 'src')), // Workaround for https://github.com/angular/angular/issues/20357
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'demo', 'index.ejs')
     })

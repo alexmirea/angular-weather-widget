@@ -40,8 +40,8 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
   `
 })
 export class WeatherCurrentDetailsComponent {
-  @Input() maxTemp: number;
-  @Input() minTemp: number;
-  @Input() pressure: number;
-  @Input() humidity: number;
+  @Input() maxTemp!: number;
+  @Input() minTemp!: number;
+  @Input() pressure!: number;
+  @Input() humidity!: number;
 }

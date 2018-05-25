@@ -25,8 +25,8 @@ export class WeatherForecastDetailedComponent {
     this._forecast = value;
     this.forecastPerDay = this.weatherHelpers.groupForecastsByDay(value);
   }
-  @Input() settings: WeatherSettings;
+  @Input() settings!: WeatherSettings;
   forecastPerDay: Array<Forecast[]> = [];
-  private _forecast: Forecast[];
+  private _forecast!: Forecast[];
   constructor(private weatherHelpers: WeatherHelpersService) {}
 }

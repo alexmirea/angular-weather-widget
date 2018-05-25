@@ -30,7 +30,7 @@ import { WeatherHelpersService } from '../../../services/weather-helpers.service
   `
 })
 export class WeatherForecastSimpleGridComponent {
-  forecastPerDay: Forecast[];
+  forecastPerDay!: Forecast[];
   @Input()
   set forecast(value: Forecast[]) {
     if (!value) {
@@ -44,6 +44,6 @@ export class WeatherForecastSimpleGridComponent {
   get forecast(): Forecast[] {
     return this._forecast;
   }
-  private _forecast: Forecast[];
+  private _forecast!: Forecast[];
   constructor(private weatherHelpers: WeatherHelpersService) {}
 }

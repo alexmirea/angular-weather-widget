@@ -9,8 +9,7 @@ import {
   OnDestroy,
   Renderer2
 } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
+import { Observable, Subscription } from 'rxjs';
 import {
   CurrentWeather,
   Forecast,
@@ -131,16 +130,15 @@ import {
     <weather-actions *ngIf="isMouseOn" (update)="getWeather()"></weather-actions>
 
   `
-})
-export // tslint:disable-next-line:component-class-suffix
-class WeatherContainer implements OnDestroy {
-  @HostBinding('style.background') background: string;
-  @HostBinding('style.color') color: string;
+}) // tslint:disable-next-line:component-class-suffix
+export class WeatherContainer implements OnDestroy {
+  @HostBinding('style.background') background!: string;
+  @HostBinding('style.color') color!: string;
   @HostBinding('style.width') width = 'auto';
   @HostBinding('style.height') height = 'auto';
 
-  @Input() forecast: Forecast[] | null;
-  @Input() currentWeather: CurrentWeather | null;
+  @Input() forecast!: Forecast[] | null;
+  @Input() currentWeather!: CurrentWeather | null;
   @Input()
   set settings(value: WeatherSettings) {
     if (!value) {
@@ -164,13 +162,13 @@ class WeatherContainer implements OnDestroy {
   }
 
   isWideLayout = false;
-  subscriptionCurrentWeather: Subscription;
-  subscriptionForecast: Subscription;
-  currentWeather$: Observable<CurrentWeather>;
-  forecast$: Observable<Forecast[]>;
-  isMouseOn: boolean;
+  subscriptionCurrentWeather!: Subscription;
+  subscriptionForecast!: Subscription;
+  currentWeather$!: Observable<CurrentWeather>;
+  forecast$!: Observable<Forecast[]>;
+  isMouseOn!: boolean;
 
-  private _settings: WeatherSettings;
+  private _settings!: WeatherSettings;
 
   constructor(
     private weatherApi: WeatherApiService,

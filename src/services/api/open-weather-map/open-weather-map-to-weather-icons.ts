@@ -1,5 +1,5 @@
 export interface IconCodeType {
-  [key: string]: { 'label': string; 'icon': string };
+  [key: string]: { label: string; icon: string };
 }
 
 export const iconCodes: IconCodeType = {

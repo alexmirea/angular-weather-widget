@@ -15,23 +15,24 @@ import { ChartOptions, ChartData, Chart } from 'chart.js';
 export class ChartComponent implements OnInit, OnChanges {
   chart: any;
 
-  @Input()
-  type: 'line' | 'bar' | 'radar' | 'pie' | 'polarArea' | 'bubble' | 'scatter';
-  @Input() data: ChartData;
-  @Input() options: ChartOptions;
+  @Input() type!: string;
+  @Input() data!: ChartData;
+  @Input() options!: ChartOptions;
 
   constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
     this.options.scales = {
-        yAxes: [{
-            ticks: {
-                // Remove excess decimal places
-                callback: function(value, index, values) {
-                    return Number(value.toFixed(0));
-                }
+      yAxes: [
+        {
+          ticks: {
+            // Remove excess decimal places
+            callback: function(value, index, values) {
+              return Number(value.toFixed(0));
             }
-        }]
+          }
+        }
+      ]
     };
     this.chart = new Chart(
       this.elementRef.nativeElement.querySelector('canvas'),

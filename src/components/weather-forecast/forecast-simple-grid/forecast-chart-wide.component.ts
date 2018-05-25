@@ -23,6 +23,6 @@ import { WeatherHelpersService } from '../../../services/weather-helpers.service
   `
 })
 export class WeatherForecastChartWideComponent {
-  @Input() forecast: Forecast[];
+  @Input() forecast!: Forecast[];
   constructor(private helpers: WeatherHelpersService) {}
 }

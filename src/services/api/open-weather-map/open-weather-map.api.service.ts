@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { TemperatureScale } from '../../../components/weather-current-temperature/current-temperature.component';
 import { PoolingService } from '../../poling.service';
 import {
@@ -15,7 +15,7 @@ import { WeatherQueryParams } from '../../../weather.interfaces';
 @Injectable()
 export class OpenWeatherMapApiService extends WeatherApiService {
   iconCodes: IconCodeType;
-  iconCodes$: Observable<any>;
+  iconCodes$!: Observable<any>;
   constructor(
     protected http: Http,
     protected poolingService: PoolingService,

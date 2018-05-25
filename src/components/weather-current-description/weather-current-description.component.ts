@@ -22,5 +22,5 @@ import {
   `
 })
 export class WeatherCurrentDescriptionComponent {
-  @Input() descripion: string;
+  @Input() descripion!: string;
 }

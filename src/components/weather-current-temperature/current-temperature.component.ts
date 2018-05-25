@@ -21,8 +21,8 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   `
 })
 export class WeatherCurrentTempComponent {
-  unitSymbol: string;
-  @Input() temp: number;
+  unitSymbol!: string;
+  @Input() temp!: number;
   get deg(): TemperatureScale {
     return this._deg;
   }

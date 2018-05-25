@@ -32,7 +32,7 @@ import { WeatherSettings } from '../../weather.interfaces';
   `
 })
 export class WeatherCurrentWindComponent {
-  unit: string;
+  unit!: string;
   get scale() {
     return this._scale;
   }
@@ -42,7 +42,7 @@ export class WeatherCurrentWindComponent {
     this._scale = value;
     this.unit = this.mapScaleToText(this._scale);
   }
-  windIcon: string;
+  windIcon!: string;
   get deg(): number {
     return this._deg;
   }
@@ -55,9 +55,9 @@ export class WeatherCurrentWindComponent {
     this._deg = value;
     this.windIcon = `wi wi-wind from-${this._deg}-deg`;
   }
-  private _deg: number;
-  @Input() speed: number;
-  private _scale: TemperatureScale;
+  private _deg!: number;
+  @Input() speed!: number;
+  private _scale!: TemperatureScale;
 
   mapScaleToText(scale: TemperatureScale): string {
     switch (scale) {
