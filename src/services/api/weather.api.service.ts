@@ -2,7 +2,8 @@ import { Inject, Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs';
 import { PoolingService } from '../poling.service';
-
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
 import { WeatherQueryParams } from '../../weather.interfaces';
 
 @Injectable()

@@ -140,13 +140,13 @@ export class OpenWeatherMapApiService extends WeatherApiService {
 }
 
 export interface OpenWeatherMapLocationRequest {
-  id?: number;
-  q?: string;
-  lat?: number;
-  lon?: number;
-  zip?: number;
+  id?: any;
+  q?: any;
+  lat?: any;
+  lon?: any;
+  zip?: any;
   units?: 'imperial' | 'metric';
-  lang?: string;
+  lang?: any;
 }
 
 export interface OpenWeatherMapCurrentWeatherResponse {
